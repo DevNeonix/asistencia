@@ -120,7 +120,7 @@ class OrdenTrabajoController extends Controller
         $cliente = $request->input('cliente');
         $estado = $request->input('estado');
         $ubicacion = $request->input('ubicacion');
-        $viatico = $request->input('viatico');
+        $viatico = $request->input('viatico')==""?0:$request->input('viatico');
         $centro_costo_id = $request->input('centro_costo_id')==""?null:$request->input('centro_costo_id');
 
         $ot = OrdenTrabajo::where('id', $id)->update([
