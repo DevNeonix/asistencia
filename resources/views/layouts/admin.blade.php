@@ -77,6 +77,7 @@
         <div class="content p-4">
             <div class="card">
                 <div class="card-body">
+                    @include('errors.alerts')
                     @yield('content')
                 </div>
             </div>

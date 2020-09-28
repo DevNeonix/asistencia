@@ -142,6 +142,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'usuario'], function () {
     })->name('admin.marcacion.faltas.registro');
 
     Route::get('marcacion/extras','MarcacionController@extras')->name('admin.marcacion.extras');
+    Route::post('marcacion/extras','MarcacionController@saveextras')->name('admin.marcacion.extras.store');
 
 
     /*REPORTES*/

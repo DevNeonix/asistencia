@@ -3,41 +3,46 @@
 
     <div class="col-12">
         <h1 class="h3">Asignación de Horas Extras</h1>
-        <div class="form-group col-md-6">
-            <label for="">Seleccion Personal</label>
-            <select id="personal" class="form-control select2" onchange="buscaOt(this.value)">
-                <option value=""></option>
-                @foreach($personal as $p)
-                    <option value="{{$p->id}}">{{$p->apellidos." ".$p->nombres}}</option>
-                @endforeach
-            </select>
-        </div>
-        <div class="form-group col-md-6">
-            <label for="">Seleccion OT</label>
-            <select id="ots" class="form-control select2" onchange="buscaFechas()">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group col-md-6">
-            <label for="">Seleccion Fecha de asistencia</label>
-            <select id="fecha" class="form-control select2">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group col-md-6">
-            <label for="">Horas extras</label>
-            <input type="number" id="horas" min="0" max="4" class="form-control" value="0" onchange="(this.value>4)?this.value=4:this.value=this.value;calculaMinutos();">
-        </div>
-        <div class="form-group col-md-6">
-            <label for="">Minutos extras</label>
-            <input type="number" id="minutos" min="0" max="59" class="form-control" value="0" onchange="(this.value>59)?this.value=59:this.value=this.value;calculaMinutos();">
-        </div>
-        <div class="col-md-12">
-            <span class="text-bold" id="totmin">0</span> total minutos extras
-        </div>
-        <div class="form-group col-md-6">
-            <button class="btn btn-primary btn-block btn-disabled" disabled>Guardar</button>
-        </div>
+        <form id="frmextras" action="{{route('admin.marcacion.extras.store')}}" method="POST" onsubmit="return false;">
+            <div class="form-group col-md-6">
+                <label for="">Seleccion Personal</label>
+                <select id="personal" name="personal" class="form-control select2" onchange="buscaOt(this.value)">
+                    <option value=""></option>
+                    @foreach($personal as $p)
+                        <option value="{{$p->id}}">{{$p->apellidos." ".$p->nombres}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="">Seleccion OT</label>
+                <select id="ots" name="ot" class="form-control select2" onchange="buscaFechas()">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="">Seleccion Fecha de asistencia</label>
+                <select id="fecha" name="fecha" class="form-control select2">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="">Horas extras</label>
+                <input type="number" id="horas" min="0" max="4" class="form-control" value="0"
+                       onchange="(this.value>4)?this.value=4:this.value=this.value;calculaMinutos();">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="">Minutos extras</label>
+                <input type="number" id="minutos" min="0" max="59" class="form-control" value="0"
+                       onchange="(this.value>59)?this.value=59:this.value=this.value;calculaMinutos();">
+            </div>
+            <input type="hidden" name="totmin" id="totex">
+            <div class="col-md-12">
+                <span class="text-bold" id="totmin">0</span> total minutos extras
+            </div>
+            <div class="form-group col-md-6">
+                <button class="btn btn-primary btn-block " onclick="guardar()">Guardar</button>
+            </div>
+        </form>
     </div>
 
 
@@ -46,18 +51,34 @@
     <script>
         var totmin = 0;
         $(".select2").select2();
-        function resetExtras(){
-            totmin=0;
+
+
+        function guardar() {
+            var personal = document.getElementById("personal").value;
+            var ot = document.getElementById("ots").value;
+            var fecha = document.getElementById("fecha").value;
+            if (personal == "" || ot == "" || fecha == "" || totmin == 0) {
+                alert("llene los datos correctamente");
+            }else{
+                document.getElementById("frmextras").submit();
+            }
+        }
+
+        function resetExtras() {
+            totmin = 0;
             document.getElementById("horas").value = "0";
             document.getElementById("minutos").value = "0";
             calculaMinutos();
         }
-        function calculaMinutos(){
-            var horas=document.getElementById("horas").value;
-            var minutos=document.getElementById("minutos").value;
-            totmin = parseFloat(horas*60)+parseFloat(minutos);
-            document.getElementById("totmin").innerText=totmin;
+
+        function calculaMinutos() {
+            var horas = document.getElementById("horas").value;
+            var minutos = document.getElementById("minutos").value;
+            totmin = parseFloat(horas * 60) + parseFloat(minutos);
+            document.getElementById("totmin").innerText = totmin;
+            document.getElementById("totex").value = totmin;
         }
+
         function buscaOt(id) {
             resetExtras();
             let o = `<option value=""></option>`;
@@ -81,6 +102,7 @@
                 }
             });
         }
+
         function buscaFechas() {
             resetExtras();
             document.getElementById("fecha").innerHTML = "";
@@ -90,14 +112,14 @@
 
             $.ajax({
                 url: "{{route('api.marcacion.list')}}",
-                data: "personal=" + personal+"&orden_trabajo="+ot,
+                data: "personal=" + personal + "&orden_trabajo=" + ot,
                 type: 'GET',
                 cache: false,
                 success: function (res) {
                     var oo = "";
-                    for(let f of res){
+                    for (let f of res) {
                         console.log(f.fecha);
-                        oo = oo +`<option value="${f.fecha}">${f.fecha}</option>`
+                        oo = oo + `<option value="${f.fecha}">${f.fecha}</option>`
                     }
                     document.getElementById("fecha").innerHTML = oo;
                 },
