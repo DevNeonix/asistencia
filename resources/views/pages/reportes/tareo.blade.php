@@ -13,7 +13,7 @@
             <button type="submit" class="btn btn-primary btn-sm">Buscar</button>
         </div>
     </form>
-    <a href="{{route('admin.reporte.asistenciadia.export')}}" class="btn btn-primary btn-sm m-0 p-0">Exportar</a>
+    <a href="{{route('admin.tareo.export')}}" class="btn btn-primary btn-sm m-0 p-0">Exportar</a>
     <table class="table table-sm table-responsive" style="font-size: 10px;max-height: 500px">
         <tr>
             <th>Tareado Por</th>
