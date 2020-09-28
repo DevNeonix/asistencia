@@ -3,8 +3,33 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="3166a338-8659-4768-89d1-4717969099dc" name="Default Changelist" comment="" />
+    <list default="true" id="3166a338-8659-4768-89d1-4717969099dc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/exports/tareo.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrdenTrabajoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrdenTrabajoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/OrdenTrabajo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/OrdenTrabajo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/ots_edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/ots_edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +38,9 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -141,19 +169,21 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/pages/centrocosto" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jolver\Desktop\asistencia\resources\views" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jolver\Desktop\asistencia" />
       <recent name="C:\Users\jolver\Desktop\asistencia\resources\views\pages\centrocosto" />
       <recent name="C:\Users\jolver\Desktop\asistencia\public" />
       <recent name="C:\Users\jolver\Desktop\asistencia\app" />
       <recent name="C:\Users\jolver\Desktop\asistencia\routes" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\jolver\Desktop\asistencia\resources\views" />
     </key>
   </component>
   <component name="RunManager">
@@ -173,13 +203,33 @@
       <workItem from="1601160540727" duration="5259000" />
       <workItem from="1601217318679" duration="4693000" />
       <workItem from="1601253995695" duration="9032000" />
+      <workItem from="1601297472491" duration="8325000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
+    <state x="2205" y="118" key="#com.intellij.ide.util.MemberChooser" timestamp="1601305550510">
+      <screen x="1600" y="0" width="1600" height="870" />
+    </state>
+    <state x="2205" y="118" key="#com.intellij.ide.util.MemberChooser/0.0.1600.870/1600.0.1600.870@1600.0.1600.870" timestamp="1601305550510" />
+    <state x="2130" y="189" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1601305611713">
+      <screen x="1600" y="0" width="1600" height="870" />
+    </state>
+    <state x="2130" y="189" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.870/1600.0.1600.870@1600.0.1600.870" timestamp="1601305611713" />
     <state x="733" y="247" key="NewPhpClassDialog" timestamp="1601162682457">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -196,9 +246,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="616" y="243" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1601219347844" />
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1601267546681">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="2119" y="188" width="672" height="562" key="search.everywhere.popup" timestamp="1601305661480">
+      <screen x="1600" y="0" width="1600" height="870" />
     </state>
+    <state x="2119" y="188" width="672" height="562" key="search.everywhere.popup/0.0.1600.870/1600.0.1600.870@1600.0.1600.870" timestamp="1601305661480" />
     <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1601267546681" />
   </component>
 </project>

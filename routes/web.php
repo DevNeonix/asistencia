@@ -127,12 +127,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'usuario'], function () {
         $personal = $request->input('personal');
         $desde = $request->input('desde');
         $hasta = $request->input('hasta');
+        $falta = $request->input('falta');
         for ($i = $desde; $i <= $hasta; $i = date("Y-m-d", strtotime($i . "+ 1 days"))) {
 
             DB::table('faltas')->insert([
                 'ot' => $ot,
                 'personal' => $personal,
                 'fecha' => $i,
+                'falta' => $falta,
             ]);
 
         }
@@ -142,12 +144,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'usuario'], function () {
     Route::get('marcacion/extras','MarcacionController@extras')->name('admin.marcacion.extras');
 
 
-
+    /*REPORTES*/
     Route::get('reportes/asistencia', 'MarcacionController@asistencia')->name("admin.reporte.asistencia");
     Route::get('reportes/asistencia/export', 'MarcacionController@export')->name("admin.reporte.asistencia.export");
     Route::get('reportes/asistencia-dia', 'VMarcacionDiaController@index')->name('admin.marcacion.asistenciadia');
     Route::get('reportes/asistencia-dia/export', 'MarcacionController@export2')->name("admin.reporte.asistenciadia.export");
-
+    Route::get('reportes/tareo', 'TareoController@index')->name("admin.tareo");
+    Route::get('reportes/tareo/export', 'TareoController@export')->name("admin.tareo.export");
+    /*fin REPORTES*/
 
 
     Route::get('cc/list','CentroCostoController@index')->name('admin.cc');
