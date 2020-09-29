@@ -17,7 +17,7 @@
                             <label>Doc. Identidad</label>
                             <input type="text" class="form-control" name="doc_ide" value="{{$personal->doc_ide}}">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group d-none" >
                             <label>Remuneración</label>
                             <input type="text" class="form-control" name="remuneracion" value="{{$personal->remuneracion}}">
                         </div>
