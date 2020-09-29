@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-    <h1 class="h4">Listado de Órdenes de trabajo</h1>
+    <h1 class="h4">Listado de Centros de costo</h1>
     <div class="row">
         <div class="col-12 col-md-4">
             <form>
