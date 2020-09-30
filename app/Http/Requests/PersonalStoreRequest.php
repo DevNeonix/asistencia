@@ -28,6 +28,8 @@ class PersonalStoreRequest extends FormRequest
             'apellidos' => 'required',
             'doc_ide' => 'required|unique:personal',
             'tipo' => 'required',
+            'remuneracion' => 'required|numeric',
+            'asignacion_familiar' => 'required|numeric',
         ];
     }
 }
