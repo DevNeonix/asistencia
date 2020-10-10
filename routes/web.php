@@ -89,10 +89,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'usuario'], function () {
                 //VALIDAR DUPLICADOS DE ASISTENCIAS (RESTRICCION DE 5 MIN)
 
                 $validaMarcacionDoble = \App\Models\Marcacion::where('personal', $personal_item)
-                                        ->where('orden_trabajo', $orden_trabajo)
-                                        ->where('fechaymd', date("Y-m-d"))
-                                        ->count();
-                if ($validaMarcacionDoble == 0 ) {
+                    ->where('orden_trabajo', $orden_trabajo)
+                    ->where('fechaymd', date("Y-m-d"))
+                    ->count();
+                if ($validaMarcacionDoble == 0) {
                     DB::table('marcacion')->insert([
                         "personal" => $personal_item,
                         "orden_trabajo" => $orden_trabajo,
@@ -102,7 +102,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'usuario'], function () {
                 } else {
 
 
-                        $errores = $errores . ". La marcación del personal " . $personal_item . " esta duplicada, se ignorará. ";
+                    $errores = $errores . ". La marcación del personal " . $personal_item . " esta duplicada, se ignorará. ";
                 }
 
             }
@@ -141,8 +141,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'usuario'], function () {
         return redirect()->back()->with(['success' => 'Falta registrada correctamente']);
     })->name('admin.marcacion.faltas.registro');
 
-    Route::get('marcacion/extras','MarcacionController@extras')->name('admin.marcacion.extras');
-    Route::post('marcacion/extras','MarcacionController@saveextras')->name('admin.marcacion.extras.store');
+    Route::get('marcacion/extras', 'MarcacionController@extras')->name('admin.marcacion.extras');
+    Route::post('marcacion/extras', 'MarcacionController@saveextras')->name('admin.marcacion.extras.store');
 
 
     /*REPORTES*/
@@ -155,12 +155,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'usuario'], function () {
     /*fin REPORTES*/
 
 
-    Route::get('cc/list','CentroCostoController@index')->name('admin.cc');
-    Route::get('cc/create','CentroCostoController@create')->name('admin.cc.create');
-    Route::get('cc/edit/{id}','CentroCostoController@edit')->name('admin.cc.edit');
-    Route::post('cc','CentroCostoController@store')->name('admin.cc.store');
-    Route::put('cc/{id}','CentroCostoController@update')->name('admin.cc.update');
+    Route::get('cc/list', 'CentroCostoController@index')->name('admin.cc');
+    Route::get('cc/create', 'CentroCostoController@create')->name('admin.cc.create');
+    Route::get('cc/edit/{id}', 'CentroCostoController@edit')->name('admin.cc.edit');
+    Route::post('cc', 'CentroCostoController@store')->name('admin.cc.store');
+    Route::put('cc/{id}', 'CentroCostoController@update')->name('admin.cc.update');
 
-
+    Route::resource('usuarios-menus', 'UserMenuController');
 
 });

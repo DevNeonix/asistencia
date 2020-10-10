@@ -27,7 +27,7 @@
         </div>
 
         @php
-            $menus = \App\Models\Menu::join('user_menus', 'menus.id', '=', 'user_menus.menu_id')->get();
+            $menus = \App\Models\Menu::join('user_menus', 'menus.id', '=', 'user_menus.menu_id')->where('user_id',auth()->user()->id)->get();
         @endphp
 
         @foreach($menus as $menu)
