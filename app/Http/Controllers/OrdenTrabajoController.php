@@ -72,13 +72,21 @@ class OrdenTrabajoController extends Controller
         $nro_orden = $request->input('nro_orden');
         $producto_fabricar = $request->input('producto_fabricar');
         $cliente = $request->input('cliente');
+
+        $ubicacion = $request->input('ubicacion');
+        $viatico = $request->input('viatico')==""?0:$request->input('viatico');
+
         $centro_costo_id = $request->input('centro_costo_id')==""?null:$request->input('centro_costo_id');
+
+
         $ot = OrdenTrabajo::create([
             'nro_orden' => $nro_orden,
             'producto_fabricar' => $producto_fabricar,
             'cliente' => $cliente,
             'estado' => '1',
-            "centro_costo_id" => $centro_costo_id
+            "centro_costo_id" => $centro_costo_id,
+            "ubicacion" => $ubicacion,
+            "viatico" => $viatico
         ]);
         return redirect()->route('admin.ots')->with('success', "La OT #" . $ot->id . " ha sido registrado correctamente.");
     }
