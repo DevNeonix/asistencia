@@ -12,7 +12,7 @@
                         </div>
                         <div class="form-group">
                             <label>Usuario</label>
-                            <input type="email" name="usuario" class="form-control" value="{{old('usuario')}}">
+                            <input type="text" name="usuario" class="form-control" value="{{old('usuario')}}">
                         </div>
                         <div class="form-group">
                             <label>Clave</label>

@@ -66,11 +66,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'usuario'], function () {
 
 
     Route::get('marcacion', function (Request $request) {
-        $data = DB::table('orden_trabajo')->where('estado', '1');
+
+        $data = \App\Models\OrdenTrabajo::withCount(['personal'])->where('estado', '1')->having('personal_count', '>', 0);
+
         if (!empty($request->input('buscar'))) {
             $data = $data->where('producto_fabricar', 'like', '%' . $request->input('buscar') . '%');
             $data = $data->orWhere('cliente', 'like', '%' . $request->input('buscar') . '%');
         }
+
+
         $data = $data->paginate()->appends(request()->query());
 
         return view('pages.marcacion')->with('data', $data);

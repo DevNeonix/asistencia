@@ -26,6 +26,7 @@
         <tbody>
 
         @foreach($data as $i)
+
             <tr>
                 <td>{{$i->id}}</td>
                 <td>{{$i->nro_orden}}</td>
