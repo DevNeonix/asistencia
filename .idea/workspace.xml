@@ -24,11 +24,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3166a338-8659-4768-89d1-4717969099dc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/OrdenTrabajo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/OrdenTrabajo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/OrdenTrabajoPersonal.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/OrdenTrabajoPersonal.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/marcacion.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/marcacion.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/ots_personal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/ots_personal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -211,7 +208,8 @@
       <workItem from="1602335360321" duration="12218000" />
       <workItem from="1602422433758" duration="604000" />
       <workItem from="1602450555645" duration="438000" />
-      <workItem from="1602457785742" duration="1754000" />
+      <workItem from="1602457785742" duration="2348000" />
+      <workItem from="1602463587945" duration="379000" />
     </task>
     <servers />
   </component>
@@ -259,10 +257,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="616" y="243" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1601219347844" />
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1602458139522">
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1602463843038">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="2119" y="188" width="672" height="562" key="search.everywhere.popup/0.0.1600.870/1600.0.1600.870@1600.0.1600.870" timestamp="1601307223940" />
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1602458139522" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1602463843038" />
   </component>
 </project>

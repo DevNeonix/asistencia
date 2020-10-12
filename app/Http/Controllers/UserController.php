@@ -21,20 +21,21 @@ class UserController extends Controller
     {
         $usuario = $request->input('usuario');
         $clave = $request->input('clave');
-        $user = User::where('email', $usuario)->where('password', $clave);
+        $user = User::where('name', $usuario)->where('password', $clave);
         if ($user->count() == 0) {
             return redirect()->to('login')->withErrors('Las creedenciales no corresponden con nuestros registros.');
         } else {
             Auth::loginUsingId($user->get()[0]->id);
             Session::put('usuario', $user->get()[0]->id . '');
-            return redirect()->to(route('admin.marcacion'));
+            return redirect()->to(route('admin.home'));
         }
     }
+
     public function loginApi(LoginRequest $request)
     {
         $usuario = $request->input('usuario');
         $clave = $request->input('clave');
-        $user = User::where('email', $usuario)->where('password', $clave);
+        $user = User::where('name', $usuario)->where('password', $clave);
         if ($usuario == "" || $clave == "") {
             return response()->json(myResponse::apiResponse([], "Usuario o contraseña errada"), 403, [], 256);
         }
@@ -113,4 +114,8 @@ class UserController extends Controller
         return redirect()->route('admin.users')->with('success', "El usuario  ha sido modificado correctamente.");
     }
 
+    public function home()
+    {
+        return view('admin.home');
+    }
 }

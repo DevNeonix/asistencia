@@ -23,6 +23,7 @@ Route::post('login', 'UserController@login')->name('loginsubmit');
 Route::group(['prefix' => 'admin', 'middleware' => 'usuario'], function () {
 
 
+    Route::get('home', 'UserController@home')->name('admin.home');
     Route::get('users', 'UserController@list')->name('admin.users');
     Route::get('user/create', 'UserController@create')->name('admin.user.create');
     Route::post('user', 'UserController@store')->name('admin.user.store');
