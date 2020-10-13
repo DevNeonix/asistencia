@@ -19,7 +19,8 @@ class OrdenTrabajoController extends Controller
     {
 
         if (!empty($request->input('buscar'))) {
-            $data = OrdenTrabajo::where('producto_fabricar', 'like', '%' . $request->input('buscar') . '%');
+            $data = OrdenTrabajo::where('producto_fabricar', 'like', '%' . $request->input('buscar') . '%')
+                ->orWhere('nro_orden', 'like', '%' . $request->input('buscar') . '%');
             $data = $data->orWhere('cliente', 'like', '%' . $request->input('buscar') . '%');
             $data = $data->paginate()->appends(request()->query());
         } else {
