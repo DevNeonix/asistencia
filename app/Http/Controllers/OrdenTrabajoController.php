@@ -19,9 +19,9 @@ class OrdenTrabajoController extends Controller
     {
 
         if (!empty($request->input('buscar'))) {
-            $data = OrdenTrabajo::where('producto_fabricar', 'like', '%' . $request->input('buscar') . '%')
-                ->orWhere('nro_orden', 'like', '%' . $request->input('buscar') . '%');
-            $data = $data->orWhere('cliente', 'like', '%' . $request->input('buscar') . '%');
+            $data = OrdenTrabajo::where('producto_fabricar', 'like', '%' . trim($request->input('buscar')) . '%')
+                ->orWhere('nro_orden', 'like', '%' . trim($request->input('buscar')) . '%');
+            $data = $data->orWhere('cliente', 'like', '%' . trim($request->input('buscar')) . '%');
             $data = $data->paginate()->appends(request()->query());
         } else {
             $data = OrdenTrabajo::paginate()->appends(request()->query());
@@ -75,9 +75,9 @@ class OrdenTrabajoController extends Controller
         $cliente = $request->input('cliente');
 
         $ubicacion = $request->input('ubicacion');
-        $viatico = $request->input('viatico')==""?0:$request->input('viatico');
+        $viatico = $request->input('viatico') == "" ? 0 : $request->input('viatico');
 
-        $centro_costo_id = $request->input('centro_costo_id')==""?null:$request->input('centro_costo_id');
+        $centro_costo_id = $request->input('centro_costo_id') == "" ? null : $request->input('centro_costo_id');
 
 
         $ot = OrdenTrabajo::create([
@@ -129,8 +129,8 @@ class OrdenTrabajoController extends Controller
         $cliente = $request->input('cliente');
         $estado = $request->input('estado');
         $ubicacion = $request->input('ubicacion');
-        $viatico = $request->input('viatico')==""?0:$request->input('viatico');
-        $centro_costo_id = $request->input('centro_costo_id')==""?null:$request->input('centro_costo_id');
+        $viatico = $request->input('viatico') == "" ? 0 : $request->input('viatico');
+        $centro_costo_id = $request->input('centro_costo_id') == "" ? null : $request->input('centro_costo_id');
 
         $ot = OrdenTrabajo::where('id', $id)->update([
             'nro_orden' => $nro_orden,
