@@ -24,9 +24,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3166a338-8659-4768-89d1-4717969099dc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrdenTrabajoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrdenTrabajoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Marcacion.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Marcacion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/ots_edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/ots_edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/marcacion_registro.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/marcacion_registro.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,15 +173,15 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jolver\Desktop\asistencia\resources\views" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="C:\Users\jolver\Desktop\asistencia" />
       <recent name="C:\Users\jolver\Desktop\asistencia\resources\views\pages\centrocosto" />
       <recent name="C:\Users\jolver\Desktop\asistencia\public" />
       <recent name="C:\Users\jolver\Desktop\asistencia\app" />
-      <recent name="C:\Users\jolver\Desktop\asistencia\routes" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\jolver\Desktop\asistencia\resources\views" />
     </key>
   </component>
   <component name="RunManager">
@@ -214,6 +213,9 @@
       <workItem from="1602543923147" duration="1644000" />
       <workItem from="1602553948941" duration="42000" />
       <workItem from="1603075360251" duration="2256000" />
+      <workItem from="1604106738465" duration="2398000" />
+      <workItem from="1604180672644" duration="15000" />
+      <workItem from="1604277184458" duration="237000" />
     </task>
     <servers />
   </component>
@@ -233,6 +235,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="719" y="333" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604106794726">
+      <screen x="0" y="23" width="1920" height="1002" />
+    </state>
+    <state x="719" y="333" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1920.1002@0.23.1920.1002" timestamp="1604106794726" />
     <state x="2205" y="118" key="#com.intellij.ide.util.MemberChooser" timestamp="1601305550510">
       <screen x="1600" y="0" width="1600" height="870" />
     </state>
@@ -265,10 +271,11 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="616" y="243" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1601219347844" />
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1603077591695">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="623" y="240" width="672" height="648" key="search.everywhere.popup" timestamp="1604107391662">
+      <screen x="0" y="23" width="1920" height="1002" />
     </state>
     <state x="2119" y="188" width="672" height="562" key="search.everywhere.popup/0.0.1600.870/1600.0.1600.870@1600.0.1600.870" timestamp="1601307223940" />
     <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1603077591695" />
+    <state x="623" y="240" width="672" height="648" key="search.everywhere.popup/0.23.1920.1002@0.23.1920.1002" timestamp="1604107391662" />
   </component>
 </project>

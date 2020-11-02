@@ -70,9 +70,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'usuario'], function () {
 
         $data = \App\Models\OrdenTrabajo::withCount(['personal'])->where('estado', '1')->having('personal_count', '>', 0);
 
-        if (!empty($request->input('buscar'))) {
-            $data = $data->where('producto_fabricar', 'like', '%' . $request->input('buscar') . '%');
-            $data = $data->orWhere('cliente', 'like', '%' . $request->input('buscar') . '%');
+        $buscar = $request->query('buscar');
+
+        if (!empty($buscar)) {
+            $data = $data->where('nro_orden', 'like', '%' . $buscar . '%');
+            //$data = $data->orWhere('producto_fabricar', 'like', '%' . $buscar . '%');
+            //$data = $data->orWhere('cliente', 'like', '%' . $buscar . '%');
         }
 
 
@@ -81,7 +84,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'usuario'], function () {
         return view('pages.marcacion')->with('data', $data);
     })->name('admin.marcacion');
     Route::get('marcacion/registro/{id}', function ($id) {
-        $ot = DB::table('orden_trabajo')->where("id", $id)->get()[0];
+        $ot = \App\Models\OrdenTrabajo::where("id", $id)->first();
         return view('pages.marcacion_registro')->with('ot', $ot);
     })->name('admin.marcacion.registro');
     Route::post('marcacion/registro', function (Request $request) {

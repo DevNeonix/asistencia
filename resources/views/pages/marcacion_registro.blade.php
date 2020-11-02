@@ -67,6 +67,18 @@
                                         </p>
                                     @endforeach
 
+                                    <div class="form-group">
+                                        <input type="checkbox" disabled class="form-check-input viaticochk" onchange="(this.checked)?$('#viaticochk{{$i->id_personal}}').removeAttr('disabled'):$('#viaticochk{{$i->id_personal}}').attr('disabled','disabled').val(0)">
+                                        <label class="form-check-label">Asignar viáticos</label>
+                                        <input type="number" id="viaticochk{{$i->id_personal}}"  class="form-control viatico" disabled  value="0">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="checkbox" disabled class="form-check-input extrachk" onchange="(this.checked)?$('#extrachk{{$i->id_personal}}').removeAttr('disabled'):$('#extrachk{{$i->id_personal}}').attr('disabled','disabled').val(0)">
+                                        <label class="form-check-label">Asignar horas extras</label>
+                                        <input type="number" id="extrachk{{$i->id_personal}}" class="form-control extra" disabled value="0" >
+                                    </div>
+
                                     @if($v == 1)<br> <p class="text-danger">Este personal se encuentra en otra
                                         OT</p> @endif
                                 </td>
@@ -154,6 +166,25 @@
                 }
             });
         }
+
+        $(".chkAsistencia").on("change",function (){
+           var x = $(this).parent().parent().find(".viaticochk");
+           var y = $(this).parent().parent().find(".extrachk");
+           if (this.checked){
+               x.removeAttr("disabled")
+               y.removeAttr("disabled")
+               // $(this).parent().parent().find(".form-control").removeAttr("disabled")
+           }else{
+               x.attr("disabled","disabled")
+               y.attr("disabled","disabled")
+               x[0].checked=(false)
+               y[0].checked=(false)
+
+               $(this).parent().parent().find(".form-control").val(0)
+               // $(this).parent().parent().find(".form-control").attr("disabled","disabled")
+
+           }
+        });
 
     </script>
 @endsection
