@@ -123,6 +123,7 @@
 
         function seleccionaTodos(v) {
             $('.chkAsistencia').prop('checked', v);
+            $('.chkAsistencia').trigger('change');
         }
 
         function eliminaMarca(id) {
@@ -148,10 +149,15 @@
             var personal = [];
             $(".chkAsistencia").each(function (i) {
                 if (this.checked) {
-                    personal.push($(this).attr("id_personal"));
+                    var id = $(this).attr("id_personal");
+                    personal.push({
+                        personal_id:id,
+                        extra:$("#extrachk"+id).val(),
+                        viatico:$("#viaticochk"+id).val(),
+                    });
                 }
             });
-
+            console.log(personal);
             $.ajax({
                 url: '{{route("admin.marcacion.insert")}}',
                 type: 'post',
@@ -161,6 +167,7 @@
                 },
                 cache: false,
                 success: function (res) {
+                    console.log(res);
                     alert(res.message);
                     window.location.reload();
                 }

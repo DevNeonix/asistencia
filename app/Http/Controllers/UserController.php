@@ -14,6 +14,10 @@ class UserController extends Controller
 
     public function loginview()
     {
+        if(auth()->check()){
+            return redirect()->to(route('admin.home'));
+        }
+
         return view('pages.login');
     }
 
