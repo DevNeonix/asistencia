@@ -74,7 +74,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'usuario'], function () {
 
         if (!empty($buscar)) {
             $data = $data->where('nro_orden', 'like', '%' . $buscar . '%');
-            //$data = $data->orWhere('producto_fabricar', 'like', '%' . $buscar . '%');
+            $data = $data->orWhere('producto_fabricar', 'like', '%' . $buscar . '%');
             //$data = $data->orWhere('cliente', 'like', '%' . $buscar . '%');
         }
 
