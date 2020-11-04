@@ -169,7 +169,7 @@
                 success: function (res) {
                     console.log(res);
                     alert(res.message);
-                    //window.location.reload();
+                    window.location.reload();
                 }
             });
         }
