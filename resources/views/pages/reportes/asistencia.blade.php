@@ -55,7 +55,11 @@
 @section('scripts')
     <script>
         if ($(".txtdate").val() == "") {
-            $(".txtdate").val(new Date().toISOString().substr(0, 10))
+            $(".txtdate").val(getYYYYMMDD())
+        }
+        function getYYYYMMDD() {
+            const d = new Date()
+            return new Date(d.getTime() - d.getTimezoneOffset() * 60 * 1000).toISOString().split('T')[0]
         }
 
         function toExcel() {
