@@ -88,6 +88,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'usuario'], function () {
         return view('pages.marcacion_registro')->with('ot', $ot);
     })->name('admin.marcacion.registro');
     Route::post('marcacion/registro', function (Request $request) {
+
+	
+
         $personal = request('personal');
         $orden_trabajo = $request->input('orden_trabajo');
         $errores = "";
@@ -96,19 +99,25 @@ Route::group(['prefix' => 'admin', 'middleware' => 'usuario'], function () {
 
                 //VALIDAR DUPLICADOS DE ASISTENCIAS (RESTRICCION DE 5 MIN)
                 //echo ($personal_item["viatico"]);
+
+		//dd($personal_item);
+
                 $validaMarcacionDoble = \App\Models\Marcacion::where('personal', $personal_item["personal_id"])
                     ->where('orden_trabajo', $orden_trabajo)
                     ->where('fechaymd', date("Y-m-d"))
                     ->count();
+		//dd($validaMarcacionDoble);
                 if ($validaMarcacionDoble == 0) {
+			
                     DB::table('marcacion')->insert([
                         "personal" => $personal_item["personal_id"],
                         "orden_trabajo" => $orden_trabajo,
                         "fecha" => \Carbon\Carbon::now(),
                         "usuario_registra" => Session::get("usuario"),
-                        "viatico"=> $personal_item["viatico"],
-                        "minutos_extra"=> $personal_item["extra"]*60,
+                        "viatico"=> doubleval($personal_item["viatico"]),
+                        "minutos_extra"=> intval($personal_item["extra"])*60,
                     ]);
+
                 } else {
 
 

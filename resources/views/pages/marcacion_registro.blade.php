@@ -68,9 +68,9 @@
                                     @endforeach
 
                                     <div class="form-group">
-                                        <input type="checkbox" disabled class="form-check-input viaticochk" onchange="(this.checked)?$('#viaticochk{{$i->id_personal}}').removeAttr('disabled'):$('#viaticochk{{$i->id_personal}}').attr('disabled','disabled').val(0)">
+                                        <input type="checkbox" disabled class="form-check-input viaticochk" onchange="(this.checked)?$('#viaticochk{{$i->id_personal}}').removeAttr('disabled').val({{$ot->viatico}}):$('#viaticochk{{$i->id_personal}}').attr('disabled','disabled').val(0)">
                                         <label class="form-check-label">Asignar viáticos</label>
-                                        <input type="number" id="viaticochk{{$i->id_personal}}"  class="form-control viatico" disabled  value="0">
+                                        <input type="number" id="viaticochk{{$i->id_personal}}"  class="form-control viatico d-none" disabled  value="0">
                                     </div>
 
                                     <div class="form-group">
@@ -169,7 +169,7 @@
                 success: function (res) {
                     console.log(res);
                     alert(res.message);
-                    window.location.reload();
+                    //window.location.reload();
                 }
             });
         }
