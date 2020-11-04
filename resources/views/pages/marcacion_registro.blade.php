@@ -160,7 +160,7 @@
             console.log(personal);
             $.ajax({
                 url: '{{route("admin.marcacion.insert")}}',
-                type: 'post',
+                type: 'get',
                 data: {
                     orden_trabajo:{{$ot->id}},
                     personal: personal

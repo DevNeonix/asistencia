@@ -87,9 +87,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'usuario'], function () {
         $ot = \App\Models\OrdenTrabajo::where("id", $id)->first();
         return view('pages.marcacion_registro')->with('ot', $ot);
     })->name('admin.marcacion.registro');
-    Route::post('marcacion/registro', function (Request $request) {
+    Route::get('marcacion/registro', function (Request $request) {
 
-	
+
 
         $personal = request('personal');
         $orden_trabajo = $request->input('orden_trabajo');
@@ -108,12 +108,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'usuario'], function () {
                     ->count();
 		//dd($validaMarcacionDoble);
                 if ($validaMarcacionDoble == 0) {
-			
+
                     DB::table('marcacion')->insert([
                         "personal" => $personal_item["personal_id"],
                         "orden_trabajo" => $orden_trabajo,
                         "fecha" => \Carbon\Carbon::now(),
-                        "usuario_registra" => Session::get("usuario"),
+                        "usuario_registra" => auth()->user()->id,
                         "viatico"=> doubleval($personal_item["viatico"]),
                         "minutos_extra"=> intval($personal_item["extra"])*60,
                     ]);
@@ -121,7 +121,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'usuario'], function () {
                 } else {
 
 
-                    $errores = $errores . ". La marcación del personal " . $personal_item . " esta duplicada, se ignorará. ";
+                    $errores = $errores . ". La marcación del personal " . $personal_item["personal_id"] . " esta duplicada, se ignorará. ";
                 }
 
             }
