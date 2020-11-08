@@ -69,12 +69,9 @@ class MarcacionController extends Controller
         }
 
 
-        $asistencias = VOrdenTrabajoPersonal::join("marcacion", function ($join) {
-            $join->on("marcacion.personal", "=", "id_personal");
-            $join->on("marcacion.orden_trabajo", "=", "id_ot");
-        })->whereBetween("fecha", [$f1, $f2->format('Y-m-d')])->orderBy($order)->get();
-
-        return view('pages.reportes.asistencia')->with('data', $asistencias);
+        $asistencias = Marcacion::whereBetween("fecha", [$f1, $f2->format('Y-m-d')])->distinct()->get()->pluck('personal');
+        $asistencias = Personal::whereIn('id',$asistencias)->orderBy("apellidos")->get();
+        return view('pages.reportes.asistencia-personal')->with('data', $asistencias);
     }
 
     public function extras()

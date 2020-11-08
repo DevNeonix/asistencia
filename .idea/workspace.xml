@@ -23,9 +23,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3166a338-8659-4768-89d1-4717969099dc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/reportes/asistencia-personal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/marcacion_registro.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/marcacion_registro.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MarcacionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MarcacionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/reportes/asistencia.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/reportes/asistencia.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +53,6 @@
       <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
       <path value="$PROJECT_DIR$/vendor/nunomaduro/collision" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
-      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
       <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
       <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
@@ -120,7 +121,6 @@
       <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
       <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
       <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
-      <path value="$PROJECT_DIR$/vendor/laravel/tinker" />
       <path value="$PROJECT_DIR$/vendor/laravel/framework" />
       <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
       <path value="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir" />
@@ -141,7 +141,6 @@
       <path value="$PROJECT_DIR$/vendor/voku/portable-ascii" />
       <path value="$PROJECT_DIR$/vendor/opis/closure" />
       <path value="$PROJECT_DIR$/vendor/filp/whoops" />
-      <path value="$PROJECT_DIR$/vendor/psy/psysh" />
       <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
       <path value="$PROJECT_DIR$/vendor/psr/log" />
       <path value="$PROJECT_DIR$/vendor/psr/http-message" />
@@ -151,11 +150,14 @@
       <path value="$PROJECT_DIR$/vendor/maatwebsite/excel" />
       <path value="$PROJECT_DIR$/vendor/maennchen/zipstream-php" />
       <path value="$PROJECT_DIR$/vendor/phpoffice/phpspreadsheet" />
-      <path value="$PROJECT_DIR$/vendor/markbaker/matrix" />
-      <path value="$PROJECT_DIR$/vendor/markbaker/complex" />
-      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
       <path value="$PROJECT_DIR$/vendor/myclabs/php-enum" />
       <path value="$PROJECT_DIR$/vendor/watson/active" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/psy/psysh" />
+      <path value="$PROJECT_DIR$/vendor/laravel/tinker" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/matrix" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/complex" />
     </include_path>
   </component>
   <component name="ProjectId" id="1i4IfQjoBJMKQ2HBGmm0ybeSar4" />
@@ -166,22 +168,22 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/pages/reportes" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\jolver\Desktop\asistencia\resources\views" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\asistencia\resources\views\pages\reportes" />
+      <recent name="D:\asistencia" />
       <recent name="$PROJECT_DIR$" />
       <recent name="C:\Users\jolver\Desktop\asistencia" />
       <recent name="C:\Users\jolver\Desktop\asistencia\resources\views\pages\centrocosto" />
-      <recent name="C:\Users\jolver\Desktop\asistencia\public" />
-      <recent name="C:\Users\jolver\Desktop\asistencia\app" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jolver\Desktop\asistencia\resources\views" />
     </key>
   </component>
   <component name="RunManager">
@@ -216,6 +218,7 @@
       <workItem from="1604106738465" duration="2398000" />
       <workItem from="1604180672644" duration="15000" />
       <workItem from="1604277184458" duration="237000" />
+      <workItem from="1604870256793" duration="5243000" />
     </task>
     <servers />
   </component>
@@ -271,11 +274,11 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="616" y="243" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1601219347844" />
-    <state x="623" y="240" width="672" height="648" key="search.everywhere.popup" timestamp="1604107391662">
-      <screen x="0" y="23" width="1920" height="1002" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1604871052839">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="2119" y="188" width="672" height="562" key="search.everywhere.popup/0.0.1600.870/1600.0.1600.870@1600.0.1600.870" timestamp="1601307223940" />
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1603077591695" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1604871052839" />
     <state x="623" y="240" width="672" height="648" key="search.everywhere.popup/0.23.1920.1002@0.23.1920.1002" timestamp="1604107391662" />
   </component>
 </project>
