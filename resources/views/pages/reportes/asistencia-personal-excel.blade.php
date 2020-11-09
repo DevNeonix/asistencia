@@ -45,6 +45,7 @@
                 $sueldo = 0;
                 $extras = 0;
 
+
             @endphp
             <tr>
                 <td>{{$i->apellidos}}, {{$i->nombres}}</td>

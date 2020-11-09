@@ -23,10 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3166a338-8659-4768-89d1-4717969099dc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/reportes/asistencia-personal-excel.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exports/VMarcacionExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/VMarcacionExport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/exports/marcacion-dia.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/exports/marcacion-dia.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/reportes/asistencia-personal-excel.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/reportes/asistencia-personal-excel.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,7 +214,7 @@
       <workItem from="1604106738465" duration="2398000" />
       <workItem from="1604180672644" duration="15000" />
       <workItem from="1604277184458" duration="237000" />
-      <workItem from="1604870256793" duration="6516000" />
+      <workItem from="1604870256793" duration="6613000" />
     </task>
     <servers />
   </component>
