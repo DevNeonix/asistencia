@@ -2,6 +2,8 @@
 
 namespace App\Exports;
 
+use App\Models\Marcacion;
+use App\Models\Personal;
 use App\Models\VMarcacion;
 use DateTime;
 use Illuminate\Contracts\View\View;
@@ -10,7 +12,7 @@ use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\FromView;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class VMarcacionExport implements FromCollection, WithHeadings
+class VMarcacionExport implements FromView
 {
     /**
      * @return \Illuminate\Support\Collection
@@ -33,9 +35,10 @@ class VMarcacionExport implements FromCollection, WithHeadings
     }
 
 
-    public function collection()
-    {
 
+
+    public function view(): View
+    {
         $f1 = "";
         $f2 = "";
         $order = "";
@@ -52,26 +55,10 @@ class VMarcacionExport implements FromCollection, WithHeadings
 
 
 
-        $asistencias = VMarcacion::query()->whereBetween("fecha", [$f1, $f2->format('Y-m-d')])->orderBy($order)->get();
 
-        return $asistencias;
+        $asistencias = Marcacion::whereBetween("fecha", [$f1, $f2->format('Y-m-d')])->distinct()->get()->pluck('personal');
+        $asistencias = Personal::whereIn('id',$asistencias)->orderBy("apellidos")->get();
+        return view('pages.reportes.asistencia-personal-excel')->with('data', $asistencias);
 
-    }
-
-    public function headings(): array
-    {
-        return [
-            'DNI',
-            'NOMBRES',
-            'APELLIDOS',
-            'OT',
-            'FECHA'
-        ];
-    }
-
-
-    public function view(): View
-    {
-        // TODO: Implement view() method.
     }
 }

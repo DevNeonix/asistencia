@@ -23,11 +23,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3166a338-8659-4768-89d1-4717969099dc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/reportes/asistencia-personal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/reportes/asistencia-personal-excel.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MarcacionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MarcacionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/reportes/asistencia.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/reportes/asistencia.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exports/VMarcacionExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/VMarcacionExport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/exports/marcacion-dia.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/exports/marcacion-dia.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,7 +217,7 @@
       <workItem from="1604106738465" duration="2398000" />
       <workItem from="1604180672644" duration="15000" />
       <workItem from="1604277184458" duration="237000" />
-      <workItem from="1604870256793" duration="5243000" />
+      <workItem from="1604870256793" duration="6516000" />
     </task>
     <servers />
   </component>
@@ -246,10 +245,11 @@
       <screen x="1600" y="0" width="1600" height="870" />
     </state>
     <state x="2205" y="118" key="#com.intellij.ide.util.MemberChooser/0.0.1600.870/1600.0.1600.870@1600.0.1600.870" timestamp="1601305550510" />
-    <state x="2130" y="189" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1601305611713">
-      <screen x="1600" y="0" width="1600" height="870" />
+    <state x="636" y="228" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604879881327">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="2130" y="189" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.870/1600.0.1600.870@1600.0.1600.870" timestamp="1601305611713" />
+    <state x="636" y="228" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1604879881327" />
     <state x="733" y="247" key="NewPhpClassDialog" timestamp="1601162682457">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -274,11 +274,11 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="616" y="243" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1601219347844" />
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1604871052839">
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1604879672056">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="2119" y="188" width="672" height="562" key="search.everywhere.popup/0.0.1600.870/1600.0.1600.870@1600.0.1600.870" timestamp="1601307223940" />
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1604871052839" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1604879672056" />
     <state x="623" y="240" width="672" height="648" key="search.everywhere.popup/0.23.1920.1002@0.23.1920.1002" timestamp="1604107391662" />
   </component>
 </project>
