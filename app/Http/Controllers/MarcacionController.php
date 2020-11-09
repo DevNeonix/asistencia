@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\TareoExport;
 use App\Exports\VMarcacionExport;
 use App\Exports\VMarcacionExportView;
+use App\Models\Falta;
 use App\Models\Marcacion;
 use App\Models\MarcacionObs;
 use App\Models\Personal;
@@ -71,6 +72,7 @@ class MarcacionController extends Controller
 
         $asistencias = Marcacion::whereBetween("fecha", [$f1, $f2->format('Y-m-d')])->distinct()->get()->pluck('personal');
         $asistencias = Personal::whereIn('id',$asistencias)->orderBy("apellidos")->get();
+
         return view('pages.reportes.asistencia-personal')->with('data', $asistencias);
     }
 

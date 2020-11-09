@@ -40,62 +40,90 @@
         }
     @endphp
 
-    <table class="table my-2 table-responsive">
+    <table class="table my-2 table-responsive" style="max-height: 50vh">
         <thead>
         <tr>
             <th>Personal</th>
-            <th colspan="{{count($dates)*2}}">Días</th>
-            <th>Remuneración</th>
-            <th>Horas Extras</th>
+            <th colspan="{{count($dates)}}">Días</th>
+            <th>Horas Trabajadas</th>
+            <th colspan="3">Horas Extras</th>
         </tr>
         <tr>
             <td></td>
             @foreach($dates as $d)
-                <td colspan="2">{{$d}}</td>
+                <td>{{$d}}</td>
             @endforeach
             <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            @foreach($dates as $d)
-                <td >Marcaciones</td>
-                <td >Horas Extras</td>
-            @endforeach
-            <td></td>
-            <td></td>
+            <td>Tot extras</td>
+            <td>25%</td>
+            <td>35%</td>
         </tr>
         </thead>
 
         <tbody>
         @foreach($data as $i)
             @php
-                $sueldo = 0;
                 $extras = 0;
+                $extras25 = 0;
+                $extras35 = 0;
+                $extras100 = 0;
+                $trabajadas = 0;
 
             @endphp
             <tr>
-                <td>{{$i->apellidos}}, {{$i->nombres}}</td>
+                <td>{{$i->id}} <a href="{{route('admin.personal.edit',$i->id)}}">{{$i->apellidos}}, {{$i->nombres}}</a>
+                </td>
 
                 @foreach($dates as $d)
                     @php($x = \App\Models\Marcacion::where('personal',$i->id)->where('fechaymd',$d)->get())
+                    @php($f = \App\Models\Falta::where('personal',$i->id)->where('fecha',$d)->get())
+
                     <td>
+
+                        @if(count($f)> 0)
+
+                            <p>Se ha reportado la falta: </p>
+                            <ul>
+                                @foreach($f as $ff)
+                                    <li>Ot: {{$ff->ot->nro_orden}}, Motivo: {{$ff->falta}}</li>
+                                @endforeach
+                            </ul>
+
+                        @else
+
+                        @php($trabajadas = ($x->count() == 0)?$trabajadas:$trabajadas+8)
                         @php($sueldodia = ($x->count() == 0)?0:$i->costo_hora * 8)
                         @php($sueldodia = ($x->count() == 0)?0:$i->costo_hora * 8)
-                        @php($sueldo = $sueldo + $sueldodia)
-                        {{$x->count() }}
-                    </td>
-                    <td>
+                        <strong>{{($x->count() == 0)?0:8 }}</strong> horas trabajadas
+                        <br>
                         @php($extra = 0)
                         @foreach($x as $j)
                             @php($extra = $extra + ($j->minutos_extra / 60))
                         @endforeach
                         @php($extras = $extras + $extra)
-                        {{$extra}}
+                        <strong>{{$extra}}</strong> horas extra
+                        <br>
+                        <strong>{{$x->count()}}</strong> Ot(s) asistida(s)
+
+                        <?php
+                        if ($extra <= 2) {
+                            $extras25 = $extras25 + $extra;
+                        } else {
+                            $extras25 = $extras25 + 2;
+                            $extras35 = $extras35 + ($extra - 2);
+                        }
+
+                        ?>
+                        @endif
+
                     </td>
                 @endforeach
-                <td>{{round($sueldo,2)}}</td>
+                <td>{{$trabajadas}}</td>
                 <td>{{$extras}}</td>
+                <td>{{$extras25}}</td>
+                <td>{{$extras35}}</td>
+
+
             </tr>
         @endforeach
 
