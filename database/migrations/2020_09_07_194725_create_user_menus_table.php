@@ -16,8 +16,8 @@ class CreateUserMenusTable extends Migration
         Schema::disableForeignKeyConstraints();
 
         Schema::create('user_menus', function (Blueprint $table) {
+            $table->id();
             $table->unsignedInteger('user_id');
-            //$table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('menu_id');
             $table->foreign('menu_id')->references('id')->on('menus');
 

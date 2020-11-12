@@ -17,7 +17,7 @@ class CreateMenusTable extends Migration
             $table->bigIncrements('id');
             $table->string("titulo");
             $table->string("ruta");
-            $table->string("icon");
+            $table->string("icon")->nullable();
             $table->timestamps();
         });
     }
