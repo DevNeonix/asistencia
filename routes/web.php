@@ -167,6 +167,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'usuario'], function () {
     /*REPORTES*/
     Route::get('reportes/asistencia', 'MarcacionController@asistencia')->name("admin.reporte.asistencia");
     Route::get('reportes/asistencia/export', 'MarcacionController@export')->name("admin.reporte.asistencia.export");
+
+    Route::get('reportes/asistencia-resumen', 'MarcacionController@asistenciaresumen')->name("admin.reporte.asistencia-resumen");
+    Route::get('reportes/asistencia-resumen/export', 'MarcacionController@exportresumen')->name("admin.reporte.asistencia-resumen.export");
+
     Route::get('reportes/asistencia-dia', 'VMarcacionDiaController@index')->name('admin.marcacion.asistenciadia');
     Route::get('reportes/asistencia-dia/export', 'MarcacionController@export2')->name("admin.reporte.asistenciadia.export");
     Route::get('reportes/tareo', 'TareoController@index')->name("admin.tareo");

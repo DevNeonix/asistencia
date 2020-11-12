@@ -23,10 +23,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3166a338-8659-4768-89d1-4717969099dc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/reportes/asistencia-personal-resumen-excel.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_07_194506_create_menus_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_07_194506_create_menus_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_07_194725_create_user_menus_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_07_194725_create_user_menus_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MarcacionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MarcacionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,22 +167,22 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/database/migrations" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/pages/reportes" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\jolver\Desktop\asistencia\resources\views" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\asistencia\database\migrations" />
       <recent name="D:\asistencia\resources\views\pages\reportes" />
+      <recent name="D:\asistencia\database\migrations" />
       <recent name="D:\asistencia" />
       <recent name="$PROJECT_DIR$" />
       <recent name="C:\Users\jolver\Desktop\asistencia" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jolver\Desktop\asistencia\resources\views" />
     </key>
   </component>
   <component name="RunManager">
@@ -221,6 +221,7 @@
       <workItem from="1604885676999" duration="3856000" />
       <workItem from="1604964359239" duration="802000" />
       <workItem from="1604968413180" duration="4317000" />
+      <workItem from="1605147387286" duration="1094000" />
     </task>
     <servers />
   </component>
@@ -248,11 +249,11 @@
       <screen x="1600" y="0" width="1600" height="870" />
     </state>
     <state x="2205" y="118" key="#com.intellij.ide.util.MemberChooser/0.0.1600.870/1600.0.1600.870@1600.0.1600.870" timestamp="1601305550510" />
-    <state x="636" y="228" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604879881327">
+    <state x="636" y="228" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605148385408">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="2130" y="189" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.870/1600.0.1600.870@1600.0.1600.870" timestamp="1601305611713" />
-    <state x="636" y="228" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1604879881327" />
+    <state x="636" y="228" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1605148385408" />
     <state x="733" y="247" key="NewPhpClassDialog" timestamp="1601162682457">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -277,11 +278,11 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="616" y="243" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1601219347844" />
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1604971752158">
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1605148258863">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="2119" y="188" width="672" height="562" key="search.everywhere.popup/0.0.1600.870/1600.0.1600.870@1600.0.1600.870" timestamp="1601307223940" />
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1604971752158" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1605148258863" />
     <state x="623" y="240" width="672" height="648" key="search.everywhere.popup/0.23.1920.1002@0.23.1920.1002" timestamp="1604107391662" />
   </component>
 </project>

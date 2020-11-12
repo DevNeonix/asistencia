@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\TareoExport;
 use App\Exports\VMarcacionExport;
 use App\Exports\VMarcacionExportView;
+use App\Exports\VMarcacionResumenExport;
 use App\Models\Falta;
 use App\Models\Marcacion;
 use App\Models\MarcacionObs;
@@ -119,7 +120,31 @@ class MarcacionController extends Controller
         return Excel::download(new TareoExport(), 'tareo.xlsx');
 
     }
+    public function asistenciaresumen()
+    {
+        $order = \request()->input('orden') ?? 'nombre';
 
+
+        if (empty(\request("f1")) || empty(\request("f2"))) {
+            $f1 = date("Y-m-d");
+            $f2 = new DateTime('+1 day');
+        } else {
+            $f1 = \request("f1");
+            $f2 = new DateTime(\request("f2"));
+            $f2->modify('+1 day');
+
+        }
+
+
+        $asistencias = Marcacion::whereBetween("fecha", [$f1, $f2->format('Y-m-d')])->distinct()->get()->pluck('personal');
+        $asistencias = Personal::whereIn('id',$asistencias)->orderBy("apellidos")->get();
+
+        return view('pages.reportes.asistencia-personal-resumen')->with('data', $asistencias);
+    }
+    public function exportresumen()
+    {
+        return Excel::download(new VMarcacionResumenExport(request("f1"), request("f2"), request("orden")), 'marcacion.xlsx');
+    }
     public function export()
     {
         return Excel::download(new VMarcacionExport(request("f1"), request("f2"), request("orden")), 'marcacion.xlsx');
