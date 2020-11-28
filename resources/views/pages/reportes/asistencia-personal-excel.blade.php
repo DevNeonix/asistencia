@@ -13,13 +13,13 @@
 <table class="table my-2 table-responsive">
     <thead>
     <tr>
-        <th>Personal</th>
+        <th colspan=2>Personal</th>
         <th colspan="{{count($dates)}}">Días</th>
         <th>Horas Trabajadas</th>
         <th colspan="3">Horas Extras</th>
     </tr>
     <tr>
-        <td></td>
+        <td colspan=2></td>
         @foreach($dates as $d)
             <td>{{$d}}</td>
         @endforeach
@@ -41,6 +41,7 @@
 
         @endphp
         <tr>
+		                <td>{{$i->doc_ide}}</td>
             <td><a href="{{route('admin.personal.edit',$i->id)}}">{{$i->apellidos}}, {{$i->nombres}}</a>
             </td>
 
@@ -60,6 +61,12 @@
                     <strong>{{$extra}}</strong> horas extra
                     <br>
                     <strong>{{$x->count()}}</strong> Ot(s) asistida(s)
+		    <br>
+			<br>
+                        @foreach($x as $o)
+                                {{$o->ot->nro_orden}} {{$o->ot->producto_fabricar}}<br>
+                        @endforeach
+
 
                     <?php
                     if ($extra <= 2) {

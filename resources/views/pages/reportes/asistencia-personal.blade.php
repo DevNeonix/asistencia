@@ -43,13 +43,13 @@
     <table class="table my-2 table-responsive" style="max-height: 50vh">
         <thead>
         <tr>
-            <th>Personal</th>
+            <th colspan="2">Personal</th>
             <th colspan="{{count($dates)}}">Días</th>
             <th>Horas Trabajadas</th>
             <th colspan="3">Horas Extras</th>
         </tr>
         <tr>
-            <td></td>
+            <td colspan="2"></td>
             @foreach($dates as $d)
                 <td>{{$d}}</td>
             @endforeach
@@ -71,6 +71,7 @@
 
             @endphp
             <tr>
+		<td>{{$i->doc_ide}}</td>
                 <td>{{$i->id}} <a href="{{route('admin.personal.edit',$i->id)}}">{{$i->apellidos}}, {{$i->nombres}}</a>
                 </td>
 
@@ -85,7 +86,7 @@
                             <p>Se ha reportado la falta: </p>
                             <ul>
                                 @foreach($f as $ff)
-                                    <li>Ot: {{$ff->ot->nro_orden}}, Motivo: {{$ff->falta}}</li>
+                                    <li class="text-danger">{{$ff->orden_trabajo->nro_orden."-".$ff->orden_trabajo->cliente."-".$ff->orden_trabajo->producto_fabricar}}</li>
                                 @endforeach
                             </ul>
 
@@ -104,6 +105,10 @@
                         <strong>{{$extra}}</strong> horas extra
                         <br>
                         <strong>{{$x->count()}}</strong> Ot(s) asistida(s)
+			<br>
+			@foreach($x as $o)
+				{{$o->ot->nro_orden}} {{$o->ot->producto_fabricar}}<br>
+			@endforeach
 
                         <?php
                         if ($extra <= 2) {

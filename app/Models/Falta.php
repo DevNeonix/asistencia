@@ -10,7 +10,7 @@ class Falta extends Model
     protected $fillable = ['id', 'personal', 'ot', 'fecha'];
     public $timestamps = false;
 
-    public function ot(){
+    public function orden_trabajo(){
         return $this->hasOne(OrdenTrabajo::class,'id','ot');
     }
 

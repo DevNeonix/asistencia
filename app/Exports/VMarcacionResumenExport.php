@@ -8,8 +8,9 @@ use DateTime;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\FromView;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
-class VMarcacionResumenExport implements FromView
+class VMarcacionResumenExport implements FromView,ShouldAutoSize
 {
     /**
      * @return \Illuminate\Support\Collection

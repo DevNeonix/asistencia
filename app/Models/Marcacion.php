@@ -15,4 +15,8 @@ class Marcacion extends Model
         return $this->hasOne(Personal::class, 'id', 'personal');
     }
 
+    function ot(){
+	return $this->hasOne(OrdenTrabajo::class,'id','orden_trabajo');
+    }
+
 }
