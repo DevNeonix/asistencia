@@ -173,8 +173,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'usuario'], function () {
 
 //    Route::get('reportes/asistencia-dia', 'VMarcacionDiaController@index')->name('admin.marcacion.asistenciadia');
 //    Route::get('reportes/asistencia-dia/export', 'MarcacionController@export2')->name("admin.reporte.asistenciadia.export");
-//    Route::get('reportes/tareo', 'TareoController@index')->name("admin.tareo");
-//    Route::get('reportes/tareo/export', 'TareoController@export')->name("admin.tareo.export");
+    Route::get('reportes/tareo', 'TareoController@index')->name("admin.tareo");
+    Route::get('reportes/tareo/export', 'TareoController@export')->name("admin.tareo.export");
     /*fin REPORTES*/
 
 

@@ -14,5 +14,9 @@ class OrdenTrabajo extends Model
     {
         return $this->hasMany(OrdenTrabajoPersonal::class, 'orden_trabajo', 'id');
     }
+    public function centro_costo()
+    {
+        return $this->belongsTo(CentroCosto::class, 'centro_costo_id', 'id');
+    }
 
 }

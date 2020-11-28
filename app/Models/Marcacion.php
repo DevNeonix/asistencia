@@ -12,7 +12,7 @@ class Marcacion extends Model
 
     function personal_complete()
     {
-        return $this->hasOne(Personal::class, 'id', 'personal');
+        return $this->hasOne(Personal::class, 'id', 'personal')->orderBy('apellidos');
     }
 
     function ot(){

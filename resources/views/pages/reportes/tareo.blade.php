@@ -1,162 +1,141 @@
 @extends('layouts.admin')
 @section('content')
-    <h1 class="h4">Tareo</h1>
+    <div class="col-12 ">
+        <h5>Reporte de asistencia</b>
+        </h5>
+    </div>
     <form>
+        <div class="form-inline row">
+            <div class="form-group mx-1 col-md-3">
+                <label for="f1">Fecha inicial</label>
+                <input type="date" id="f1" name="f1" class="form-control txtdate" value="{{request("f1")}}">
+            </div>
+            <div class="form-group mx-1 col-md-3">
+                <label for="f2">Fecha final</label>
+                <input type="date" id="f2" name="f2" class="form-control txtdate" value="{{request("f2")}}">
+            </div>
+            <div class="form-group mx-1 col-md-3">
+                <label for="orden">Ordenar por:</label>
+                <select name="orden" id="orden" class="form-control">
+                    <option value="fecha" @if(request('orden') == 'fecha') selected @endif>Fecha</option>
+                    <option value="nro_orden" @if(request('orden') == 'nro_orden') selected @endif>OT</option>
+                    <option value="nombre" @if(request('orden') == 'nombre') selected @endif>Nombre Personal</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary btn-sm m-1">Buscar</button>
+            <button class="btn btn-success btn-sm m-1" onclick="toExcel()">Excel</button>
 
-        <div class="form-inline">
-            <div class="form-group mx-1">
-                <input type="date" id="f1" name="fechaini" class="form-control txtdate" value="{{request("fechaini")}}">
-            </div>
-            <div class="form-group mx-1">
-                <input type="date" id="f2" name="fechafin" class="form-control txtdate" value="{{request("fechafin")}}">
-            </div>
-            <button type="submit" class="btn btn-primary btn-sm">Buscar</button>
         </div>
     </form>
-    <a href="{{route('admin.tareo.export')}}" class="btn btn-primary btn-sm m-0 p-0">Exportar</a>
-    <table class="table table-sm table-responsive" style="font-size: 10px;max-height: 500px">
+    <?php
+
+    $a = \Illuminate\Support\Carbon::createFromDate(request('f1'));
+    $b = \Illuminate\Support\Carbon::createFromDate(request('f2'));
+    $dates = [];
+    for ($a; $a <= $b;) {
+        array_push($dates, $a->format('Y-m-d'));
+        $a->addDay();
+    }
+
+    ?>
+
+    <table class="table table-sm my-2 table-responsive" style="max-height: 50vh">
+        <thead>
         <tr>
-            <th>Tareado Por</th>
-            <th>Apellidos y nombres</th>
+            <th>TAREADO</th>
+            <th>APELLIDOS Y NOMBRES</th>
             <th>DNI</th>
             <th>CC</th>
-            <th>Centro de Costo</th>
-            <th>Ubicación</th>
+            <th>CENTRO DE COSTO</th>
+            <th>UBICACION</th>
             <th>OT</th>
-            <th>Descripción</th>
-            <th>Cliente</th>
-            <th>Fecha</th>
-            <th>Horas Normales</th>
-            <th>Licencia Goce de Haber</th>
-            <th>Licencia sin Goce de Haber</th>
-            <th>Horas Extras</th>
-            <th>Hrs 25%</th>
-            <th>Hrs 35%</th>
-            <th>Domingos/Feriados</th>
-            <th>Faltas</th>
-            <th>Vacaciones</th>
-            <th>Dias de Descanzo medico</th>
-            <th>Permiso</th>
-            <th>Viatico</th>
-            <th>Observación</th>
+            <th>DESCRIPCION</th>
+            <th>CLIENTE</th>
+            <th>FECHA</th>
+            <th>HORAS NORMALES</th>
+            <th>HORAS EXTRAS</th>
+            <th>HORAS EXTRAS 25%</th>
+            <th>HORAS EXTRAS 35%</th>
         </tr>
-        @php
-            $today = today();
-            $dates = [];
+        </thead>
+        <tbody>
 
-            for($i=1; $i < $today->daysInMonth + 1; ++$i) {
-                $dates[] = \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('y-m-d');
-            }
-        @endphp
-        @foreach($dates as $date)
-            @php
-                $marcas = \App\Models\VMarcacionDia::where('fechaymd',$date)->orderBy('nombre')->get()
+        @foreach($personal as $persona)
 
-            @endphp
-            @if($marcas->count()>0)
-                @foreach($marcas as $marca)
+            @foreach($dates as $day)
+
+
+                <?php
+                $marcaciones = \App\Models\Marcacion::where('personal', $persona->id)->where('fechaymd', $day)->get();
+                ?>
+                @if($marcaciones->count() == 0)
 
                     <tr>
-                        <td>{{$marca->tareadopor}}</td>
-                        <td>{{$marca->nombre}}</td>
-                        <td>{{$marca->doc_ide}}</td>
-                        @php
-                            $cc = \App\Models\CentroCosto::find($marca->centro_costo_id);
-                            $ot = \App\Models\OrdenTrabajo::find($marca->id_ot)
-                        @endphp
-                        <td>{{$cc->codigo??null}}</td>
-                        <td>{{$cc->detalle??null}}</td>
-                        <td>{{$marca->ot_ubicacion??null}}</td>
-
-                        <td>{{$marca->nro_orden}}</td>
-                        <td>{{$marca->producto_fabricar}}</td>
-                        <td>{{$marca->cliente}}</td>
-                        <td>{{$date}}</td>
-                        {{--CALCULO HORAS NORMALES--}}
-                        {{--NRO DE OTS TRABAJADAS POR DIA / 8--}}
-                        @php
-                            $nroMarcasPordia = \App\Models\Marcacion::where('orden_trabajo',$marca->id_ot)->where('personal',$marca->id_personal)->where('fechaymd',$marca->fechaymd)->distinct()->get('orden_trabajo','fechaymd')->count();
-                        @endphp
-                        <td>{{8/$nroMarcasPordia}}</td>
-                        {{--                    @php--}}
-
-                        {{--                        /*--}}
-                        {{--                            LICENCIAS--}}
-                        {{--                            <option value="1">Vacaciones</option>--}}
-                        {{--                            <option value="2">Permiso</option>--}}
-                        {{--                            <option value="3">Falta injustificada</option>--}}
-                        {{--                            <option value="4">Licencia médica</option>--}}
-                        {{--                        */--}}
-                        {{--                        $faltas = \App\Models\Falta::where('ot',$marca->id_ot)->where('personal',$marca->id_personal)->where('fecha',$marca->fechaymd)->get();--}}
-                        {{--                        $licencia="";--}}
-                        {{--                        $sinlicencia="";--}}
-                        {{--                        foreach($faltas as $falta){--}}
-                        {{--                            switch ($falta->falta){--}}
-                        {{--                                case 1:--}}
-                        {{--                                    $licencia = "*";--}}
-                        {{--                                    break;--}}
-                        {{--                                case 2:--}}
-                        {{--                                    $licencia = "*";--}}
-                        {{--                                    break;--}}
-                        {{--                                case 3:--}}
-                        {{--                                    $sinlicencia = "*";--}}
-                        {{--                                    break;--}}
-                        {{--                                case 4:--}}
-                        {{--                                    $licencia = "*";--}}
-                        {{--                                    break;--}}
-                        {{--                            }--}}
-                        {{--                        }--}}
-
-                        {{--                    @endphp--}}
-
-                        <td></td>
-                        <td></td>
-                        @php
-                            $hextra= round($marca->minutos_extras/60,2);
-                            if ($hextra < 2){
-                                $hextra25= $hextra;
-                                $hextra35= 0;
-                            }
-                            if ($hextra >= 2){
-                                $hextra25= 2;
-                                $hextra35= $hextra-2;
-                            }
-
-
-                        @endphp
-                        <td>{{$hextra}}</td>
-                        <td>{{$hextra25}}</td>
-                        <td>{{$hextra35}}</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>{{$ot->viatico}}</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        {{--                    <td>{{8/$nroMarcasPordia}}</td>--}}
+                        <td colspan="30">No Asistió el día {{$day}}</td>
                     </tr>
-                @endforeach
-            @else
 
-                <tr style="background-color: #66ff00;">
-                    <td colspan="9" style="text-align: center">
-                        <h5>{{\Illuminate\Support\Str::upper(\Illuminate\Support\Carbon::make($date)->locale('es_ES')->dayName)}}</h5>
-                    </td>
-                    <td>{{$date}}</td>
-                    <td></td>
+                @else
+                    @foreach($marcaciones as $marcacion)
+                        <?php
+                        $ot = $marcacion->ot;
+                        $cc = $ot->centro_costo;
+                        $extra = ($marcacion->minutos_extra)/60;
+                        $extras25 = 0;
+                        $extras35 = 0;
+                        $extras100 = 0;
+                        if ($extra <= 2) {
+                            $extras25 = $extra;
+                        } else {
+                            $extras25 = 2;
+                            $extras35 = $extra - $extras25;
+                        }
+                        ?>
+                        <tr>
+                            <td></td>
+                            <td>{{$persona->apellidos." ".$persona->nombre}}</td>
+                            <td>{{$persona->doc_ide}}</td>
+                            <td>{{$cc->codigo}}</td>
+                            <td>{{$cc->detalle}}</td>
+                            <td>{{$ot->ubicacion}}</td>
+                            <td>{{$ot->nro_orden}}</td>
+                            <td>{{$ot->producto_fabricar}}</td>
+                            <td>{{$ot->cliente}}</td>
+                            <td>{{$day}}</td>
+                            <td>{{8/$marcaciones->count()}}</td>
+                            <td>{{$extra}}</td>
+                            <td>{{$extras25}}</td>
+                            <td>{{$extras35}}</td>
+                        </tr>
+                    @endforeach
+                @endif
 
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            @endif
+
+            @endforeach
+
         @endforeach
 
+        </tbody>
     </table>
+@endsection
+@section('scripts')
+    <script>
+        if ($(".txtdate").val() == "") {
+            $(".txtdate").val(getYYYYMMDD())
+        }
+
+        function getYYYYMMDD() {
+            const d = new Date()
+            return new Date(d.getTime() - d.getTimezoneOffset() * 60 * 1000).toISOString().split('T')[0]
+        }
+
+        function toExcel() {
+            var f1 = document.getElementById("f1").value;
+            var f2 = document.getElementById("f2").value;
+            var orden = document.getElementById("orden").value;
+
+            var route = "{{route('admin.reporte.tareo.export')}}"
+            window.open(route + '?f1=' + f1 + '&f2=' + f2 + '&orden=' + orden)
+
+        }
+    </script>
 @endsection
