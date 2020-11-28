@@ -31,10 +31,13 @@
         @endphp
 
         @foreach($menus as $menu)
-            <div class="sidebar__item">
-                <a class="sidebar__link waves-effect {{ active(route($menu->ruta)) }}" href="{{route($menu->ruta)}}"><i
+            @if(\Illuminate\Support\Facades\Route::has($menu->ruta))
+                <div class="sidebar__item">
+                    <a class="sidebar__link waves-effect {{ active(route($menu->ruta)) }}"
+                       href="{{route($menu->ruta)}}"><i
                             class="fa fa-{{$menu->icon}}"></i>&nbsp;{{$menu->titulo}}</a>
-            </div>
+                </div>
+            @endif
             {{--            <li><a href="{{route($menu->ruta)}}"><i class="fa fa-{{$menu->icon}}"></i><span>{{$menu->titulo}}</span></a></li>--}}
         @endforeach
         {{--        <div class="sidebar__item">--}}

@@ -20,7 +20,7 @@
                 <select name="orden" id="orden" class="form-control">
                     <option value="fecha" @if(request('orden') == 'fecha') selected @endif>Fecha</option>
                     <option value="nro_orden" @if(request('orden') == 'nro_orden') selected @endif>OT</option>
-                    <option value="nombre" @if(request('orden') == 'nombre') selected @endif>Nombre Personal</option>
+                    <option value="nombre" @if(request('orden') == 'apellidos') selected @endif>Nombre Personal</option>
                 </select>
             </div>
             <button type="submit" class="btn btn-primary btn-sm m-1">Buscar</button>

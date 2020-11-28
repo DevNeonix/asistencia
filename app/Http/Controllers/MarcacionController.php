@@ -57,6 +57,7 @@ class MarcacionController extends Controller
 
     public function asistencia()
     {
+        ini_set('max_execution_time', 300);
         $order = \request()->input('orden') ?? 'nombre';
 
 
@@ -71,8 +72,8 @@ class MarcacionController extends Controller
         }
 
 
-        $asistencias = Marcacion::whereBetween("fecha", [$f1, $f2->format('Y-m-d')])->distinct()->get()->pluck('personal');
-        $asistencias = Personal::whereIn('id',$asistencias)->orderBy("apellidos")->get();
+        $asistencias = Marcacion::whereBetween("fecha", [$f1, $f2->format('Y-m-d')])->orderBy($order)->distinct()->get()->pluck('personal');
+        $asistencias = Personal::whereIn('id',$asistencias)->get();
 
         return view('pages.reportes.asistencia-personal')->with('data', $asistencias);
     }
@@ -122,6 +123,8 @@ class MarcacionController extends Controller
     }
     public function asistenciaresumen()
     {
+
+        ini_set('max_execution_time', 300);
         $order = \request()->input('orden') ?? 'nombre';
 
 
@@ -136,7 +139,7 @@ class MarcacionController extends Controller
         }
 
 
-        $asistencias = Marcacion::whereBetween("fecha", [$f1, $f2->format('Y-m-d')])->distinct()->get()->pluck('personal');
+        $asistencias = Marcacion::whereBetween("fecha", [$f1, $f2->format('Y-m-d')])->orderBy($order)->distinct()->get()->pluck('personal');
         $asistencias = Personal::whereIn('id',$asistencias)->orderBy("apellidos")->get();
 
         return view('pages.reportes.asistencia-personal-resumen')->with('data', $asistencias);
