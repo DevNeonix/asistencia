@@ -8,8 +8,9 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Support\Carbon;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\FromView;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
-class TareoXLSExport implements FromView
+class TareoXLSExport implements FromView,ShouldAutoSize
 {
 
     public function view(): View
