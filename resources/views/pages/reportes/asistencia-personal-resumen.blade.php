@@ -42,16 +42,12 @@
 
     <table class="table my-2 table-responsive" style="max-height: 50vh">
         <thead>
+      
         <tr>
-            <th colspan="2">Personal</th>
-            <th>Horas Trabajadas</th>
-            <td></td>
-            <th colspan="3">Horas Extras</th>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td>Días trabajados</td>
+            
+            <td>Nombres y Apellidos</td>
+	    <td>DNI</td>
+            <td>Días rabajados</td>
             <td>Tot horas trabajadas</td>
             <td>Tot extras</td>
             <td>25%</td>
@@ -71,8 +67,9 @@
 
             @endphp
             <tr>
-                <td>{{$i->doc_ide}}</td>
-                <td>{{$i->id}} <a href="{{route('admin.personal.edit',$i->id)}}">{{$i->apellidos}}, {{$i->nombres}}</a>
+                
+                <td>{{$i->apellidos}} {{$i->nombres}}</a>
+		<td>{{$i->doc_ide}}</td>
                 </td>
 
                 @foreach($dates as $d)
@@ -101,9 +98,11 @@
                 <td>{{$extras}}</td>
                 <td>{{$extras25}}</td>
                 <td>{{$extras35}}</td>
-                @php($ots=\Illuminate\Support\Facades\DB::select(\Illuminate\Support\Facades\DB::raw("SELECT personal,orden_trabajo,count(*) FROM marcacion where personal=".$i->id." and fecha between '".\Illuminate\Support\Carbon::createFromDate(request('f1'))."' and '".\Illuminate\Support\Carbon::createFromDate(request('f2'))."' group by personal,orden_trabajo")))
+                @php($ots=\Illuminate\Support\Facades\DB::select(\Illuminate\Support\Facades\DB::raw("SELECT personal,orden_trabajo FROM marcacion where personal=".$i->id." and fecha between '".request("f1")." 00:00:01' and '".request("f2")." 23:59:59' group by personal,orden_trabajo")))
+
                 @foreach($ots as $ot)
                     <td>
+			
                         @php($o=\App\Models\OrdenTrabajo::find($ot->orden_trabajo))
                         {{$o->nro_orden}}-{{$o->producto_fabricar}}-{{$o->cliente}}
                     </td>
