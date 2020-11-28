@@ -133,7 +133,7 @@
             var f2 = document.getElementById("f2").value;
             var orden = document.getElementById("orden").value;
 
-            var route = "{{route('admin.reporte.tareo.export')}}"
+            var route = "{{route('admin.tareo.export')}}"
             window.open(route + '?f1=' + f1 + '&f2=' + f2 + '&orden=' + orden)
 
         }
