@@ -39,7 +39,7 @@
 
     ?>
 
-    <table class="table table-sm my-2 table-responsive" style="max-height: 50vh">
+    <table class="table table-sm my-2 table-responsive">
         <thead>
         <tr>
             <th>TAREADO</th>
@@ -56,6 +56,8 @@
             <th>HORAS EXTRAS</th>
             <th>HORAS EXTRAS 25%</th>
             <th>HORAS EXTRAS 35%</th>
+            <th>HORAS EXTRAS 100%</th>
+            <th>Viaticos</th>
         </tr>
         </thead>
         <tbody>
@@ -68,10 +70,11 @@
                 <?php
                 $marcaciones = \App\Models\Marcacion::where('personal', $persona->id)->where('fechaymd', $day)->get();
                 ?>
+                @php($diaes = \App\Util\CommonUtils::getNombreDia(\Carbon\Carbon::make($day)->format('l')))
                 @if($marcaciones->count() == 0)
 
                     <tr>
-                        <td colspan="30">No Asistió el día {{$day}}</td>
+                        <td colspan="30">No Asistió el día {{$day}} ({{$diaes}})</td>
                     </tr>
 
                 @else
@@ -79,18 +82,25 @@
                         <?php
                         $ot = $marcacion->ot;
                         $cc = $ot->centro_costo;
-                        $extra = ($marcacion->minutos_extra)/60;
+                        $extra = ($marcacion->minutos_extra) / 60;
                         $extras25 = 0;
                         $extras35 = 0;
                         $extras100 = 0;
+                        $horas = round(8 / $marcaciones->count(),2);
+                        if ($diaes == "domingo") {
+                            $extras100 = 16;
+                            $horas = 0;
+                        }
+
                         if ($extra <= 2) {
                             $extras25 = $extra;
                         } else {
                             $extras25 = 2;
                             $extras35 = $extra - $extras25;
                         }
+
                         ?>
-                        <tr>
+                        <tr class="{{$diaes == "domingo"?'text-danger':''}}">
                             <td></td>
                             <td>{{$persona->apellidos." ".$persona->nombre}}</td>
                             <td>{{$persona->doc_ide}}</td>
@@ -100,11 +110,13 @@
                             <td>{{$ot->nro_orden}}</td>
                             <td>{{$ot->producto_fabricar}}</td>
                             <td>{{$ot->cliente}}</td>
-                            <td>{{$day}}</td>
-                            <td>{{8/$marcaciones->count()}}</td>
+                            <td>{{$day}} ({{$diaes}})</td>
+                            <td>{{$horas}}</td>
                             <td>{{$extra}}</td>
                             <td>{{$extras25}}</td>
                             <td>{{$extras35}}</td>
+                            <td>{{$extras100}}</td>
+                            <td>{{$marcacion->viatico}}</td>
                         </tr>
                     @endforeach
                 @endif

@@ -23,7 +23,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3166a338-8659-4768-89d1-4717969099dc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Exports/TareoXLSExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/TareoXLSExport.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Util/CommonUtils.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Marcacion.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Marcacion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/reportes/tareo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/reportes/tareo.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/reportes/tareo_excel.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/reportes/tareo_excel.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,9 +257,10 @@
     </state>
     <state x="2130" y="189" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.870/1600.0.1600.870@1600.0.1600.870" timestamp="1601305611713" />
     <state x="636" y="228" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1606586666939" />
-    <state x="733" y="247" key="NewPhpClassDialog" timestamp="1601162682457">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="2211" y="205" key="NewPhpClassDialog" timestamp="1606945252380">
+      <screen x="1600" y="0" width="1600" height="870" />
     </state>
+    <state x="2211" y="205" key="NewPhpClassDialog/0.0.1600.870/1600.0.1600.870@1600.0.1600.870" timestamp="1606945252380" />
     <state x="733" y="247" key="NewPhpClassDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1601162682457" />
     <state x="461" y="169" key="SettingsEditor" timestamp="1602553954634">
       <screen x="0" y="0" width="1920" height="1050" />
@@ -277,10 +282,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="616" y="243" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1601219347844" />
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1606586422098">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="2119" y="188" width="672" height="562" key="search.everywhere.popup" timestamp="1606946068455">
+      <screen x="1600" y="0" width="1600" height="870" />
     </state>
-    <state x="2119" y="188" width="672" height="562" key="search.everywhere.popup/0.0.1600.870/1600.0.1600.870@1600.0.1600.870" timestamp="1601307223940" />
+    <state x="2119" y="188" width="672" height="562" key="search.everywhere.popup/0.0.1600.870/1600.0.1600.870@1600.0.1600.870" timestamp="1606946068455" />
     <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1606586422098" />
     <state x="623" y="240" width="672" height="648" key="search.everywhere.popup/0.23.1920.1002@0.23.1920.1002" timestamp="1604107391662" />
   </component>
