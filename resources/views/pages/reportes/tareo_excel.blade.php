@@ -61,7 +61,7 @@ for ($a; $a <= $b;) {
                         if ($extra == 0){
                             $extras100 = 16;
                         }else{
-                            $extras100 = $extra;
+                            $extras100 = $extra*2;
                         }
 
                         $horas = 0;

@@ -23,11 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3166a338-8659-4768-89d1-4717969099dc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Util/CommonUtils.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Marcacion.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Marcacion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/reportes/tareo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/reportes/tareo.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/reportes/tareo_excel.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/reportes/tareo_excel.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,6 +221,7 @@
       <workItem from="1605147387286" duration="1094000" />
       <workItem from="1606569393660" duration="4571000" />
       <workItem from="1606584194990" duration="3439000" />
+      <workItem from="1606998154957" duration="121000" />
     </task>
     <servers />
   </component>
