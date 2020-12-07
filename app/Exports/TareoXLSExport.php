@@ -23,8 +23,8 @@ class TareoXLSExport implements FromView,ShouldAutoSize
             $f1 = Carbon::now()->format("Y-m-d") . " 00:00:01";
             $f2 = Carbon::now()->format("Y-m-d") . " 23:59:59";
         } else {
-            $f1 = \request("f1");
-            $f2 = Carbon::make(\request("f2"))->format("Y-m-d");
+            $f1 = \request("f1")." 00:00:01";
+            $f2 = Carbon::make(\request("f2"))->format("Y-m-d")." 23:59:59";
         }
 
 

@@ -85,17 +85,23 @@
                         $extras25 = 0;
                         $extras35 = 0;
                         $extras100 = 0;
-                        $horas = round(8 / $marcaciones->count(),2);
+                        $horas = round(8 / $marcaciones->count(), 2);
                         if ($diaes == "domingo") {
-                            $extras100 = 16;
-                            $horas = 0;
-                        }
+                            if ($extra == 0){
+                                $extras100 = 16;
+                            }else{
+                                $extras100 = $extra*2;
+                            }
 
-                        if ($extra <= 2) {
-                            $extras25 = $extra;
+                            $horas = 0;
                         } else {
-                            $extras25 = 2;
-                            $extras35 = $extra - $extras25;
+
+                            if ($extra <= 2) {
+                                $extras25 = $extra;
+                            } else {
+                                $extras25 = 2;
+                                $extras35 = $extra - $extras25;
+                            }
                         }
 
                         ?>
