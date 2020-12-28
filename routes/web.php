@@ -70,7 +70,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'usuario'], function () {
 
         $data = \App\Models\OrdenTrabajo::withCount(['personal'])->where('estado', '1')->having('personal_count', '>', 0);
 
-        $buscar = $request->query('buscar');
+        $buscar = trim($request->query('buscar'));
 
         if (!empty($buscar)) {
             $data = $data->where('nro_orden', 'like', '%' . $buscar . '%');
@@ -79,7 +79,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'usuario'], function () {
         }
 
 
-        $data = $data->paginate()->appends(request()->query());
+        $data = $data->get();
 
         return view('pages.marcacion')->with('data', $data);
     })->name('admin.marcacion');

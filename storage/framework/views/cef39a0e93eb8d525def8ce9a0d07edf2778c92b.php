@@ -1,0 +1,133 @@
+<?php $__env->startSection('content'); ?>
+
+    <div class="col-12">
+        <h1 class="h3">Asignación de Horas Extras</h1>
+        <form id="frmextras" action="<?php echo e(route('admin.marcacion.extras.store')); ?>" method="POST" onsubmit="return false;">
+            <div class="form-group col-md-6">
+                <label for="">Seleccion Personal</label>
+                <select id="personal" name="personal" class="form-control select2" onchange="buscaOt(this.value)">
+                    <option value=""></option>
+                    <?php $__currentLoopData = $personal; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $p): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <option value="<?php echo e($p->id); ?>"><?php echo e($p->apellidos." ".$p->nombres); ?></option>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="">Seleccion OT</label>
+                <select id="ots" name="ot" class="form-control select2" onchange="buscaFechas()">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="">Seleccion Fecha de asistencia</label>
+                <select id="fecha" name="fecha" class="form-control select2">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="">Horas extras</label>
+                <input type="number" id="horas" min="0" max="4" class="form-control" value="0"
+                       onchange="(this.value>4)?this.value=4:this.value=this.value;calculaMinutos();">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="">Minutos extras</label>
+                <input type="number" id="minutos" min="0" max="59" class="form-control" value="0"
+                       onchange="(this.value>59)?this.value=59:this.value=this.value;calculaMinutos();">
+            </div>
+            <input type="hidden" name="totmin" id="totex">
+            <div class="col-md-12">
+                <span class="text-bold" id="totmin">0</span> total minutos extras
+            </div>
+            <div class="form-group col-md-6">
+                <button class="btn btn-primary btn-block " onclick="guardar()">Guardar</button>
+            </div>
+        </form>
+    </div>
+
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('scripts'); ?>
+    <script>
+        var totmin = 0;
+        $(".select2").select2();
+
+
+        function guardar() {
+            var personal = document.getElementById("personal").value;
+            var ot = document.getElementById("ots").value;
+            var fecha = document.getElementById("fecha").value;
+            if (personal == "" || ot == "" || fecha == "" || totmin == 0) {
+                alert("llene los datos correctamente");
+            }else{
+                document.getElementById("frmextras").submit();
+            }
+        }
+
+        function resetExtras() {
+            totmin = 0;
+            document.getElementById("horas").value = "0";
+            document.getElementById("minutos").value = "0";
+            calculaMinutos();
+        }
+
+        function calculaMinutos() {
+            var horas = document.getElementById("horas").value;
+            var minutos = document.getElementById("minutos").value;
+            totmin = parseFloat(horas * 60) + parseFloat(minutos);
+            document.getElementById("totmin").innerText = totmin;
+            document.getElementById("totex").value = totmin;
+        }
+
+        function buscaOt(id) {
+            resetExtras();
+            let o = `<option value=""></option>`;
+            document.getElementById("ots").innerHTML = "";
+            $.ajax({
+                url: "<?php echo e(route('api.ots_personal2')); ?>",
+                data: "id=" + id,
+                type: 'GET',
+                cache: false,
+                success: function (res) {
+                    console.log(res)
+                    var ots = res.data;
+                    var ox = "";
+                    for (let ot of ots) {
+                        ox = ox + `<option value="${ot.id_ot}">${ot.nro_orden + ' ' + ot.cliente + ' ' + ot.producto_fabricar}</option>`
+                    }
+                    document.getElementById("ots").innerHTML = o + ox;
+                },
+                error: function (e) {
+                    alert('Error: ' + e);
+                }
+            });
+        }
+
+        function buscaFechas() {
+            resetExtras();
+            document.getElementById("fecha").innerHTML = "";
+
+            var personal = document.getElementById("personal").value;
+            var ot = document.getElementById("ots").value;
+
+            $.ajax({
+                url: "<?php echo e(route('api.marcacion.list')); ?>",
+                data: "personal=" + personal + "&orden_trabajo=" + ot,
+                type: 'GET',
+                cache: false,
+                success: function (res) {
+                    var oo = "";
+                    for (let f of res) {
+                        console.log(f.fecha);
+                        oo = oo + `<option value="${f.fecha}">${f.fecha}</option>`
+                    }
+                    document.getElementById("fecha").innerHTML = oo;
+                },
+                error: function (e) {
+                    alert('Error: ' + e);
+                }
+            });
+        }
+    </script>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.admin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /var/www/html/asistencia/resources/views/pages/extras/index.blade.php ENDPATH**/ ?>

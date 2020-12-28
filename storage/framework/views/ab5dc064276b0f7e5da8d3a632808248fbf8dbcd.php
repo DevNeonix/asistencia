@@ -73,7 +73,7 @@
                 <?php if($marcaciones->count() == 0): ?>
 
                     <tr>
-                        <td colspan="30">No Asistió el día <?php echo e($day); ?> (<?php echo e($diaes); ?>)</td>
+                        <td colspan="30"><?php echo e($persona->apellidos); ?> <?php echo e($persona->nombres); ?> No Asistió el día <?php echo e($day); ?> (<?php echo e($diaes); ?>)</td>
                     </tr>
 
                 <?php else: ?>
@@ -106,8 +106,8 @@
 
                         ?>
                         <tr class="<?php echo e($diaes == "domingo"?'text-danger':''); ?>">
-                            <td></td>
-                            <td><?php echo e($persona->apellidos." ".$persona->nombre); ?></td>
+                            <td><?php echo e(App\Models\User::find($marcacion->usuario_registra)->name); ?></td>
+                            <td><?php echo e($persona->apellidos." ".$persona->nombres); ?></td>
                             <td><?php echo e($persona->doc_ide); ?></td>
                             <td><?php echo e($cc->codigo); ?></td>
                             <td><?php echo e($cc->detalle); ?></td>

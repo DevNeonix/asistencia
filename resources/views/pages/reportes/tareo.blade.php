@@ -74,7 +74,7 @@
                 @if($marcaciones->count() == 0)
 
                     <tr>
-                        <td colspan="30">No Asistió el día {{$day}} ({{$diaes}})</td>
+                        <td colspan="30">{{$persona->apellidos}} {{$persona->nombres}} No Asistió el día {{$day}} ({{$diaes}})</td>
                     </tr>
 
                 @else
@@ -107,8 +107,8 @@
 
                         ?>
                         <tr class="{{$diaes == "domingo"?'text-danger':''}}">
-                            <td></td>
-                            <td>{{$persona->apellidos." ".$persona->nombre}}</td>
+                            <td>{{App\Models\User::find($marcacion->usuario_registra)->name}}</td>
+                            <td>{{$persona->apellidos." ".$persona->nombres}}</td>
                             <td>{{$persona->doc_ide}}</td>
                             <td>{{$cc->codigo}}</td>
                             <td>{{$cc->detalle}}</td>
