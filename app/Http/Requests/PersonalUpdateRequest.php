@@ -27,6 +27,7 @@ class PersonalUpdateRequest extends FormRequest
             'nombres' => 'required',
             'apellidos' => 'required',
             'tipo' => 'required',
+            'doc_ide' => 'required|numeric',
         ];
     }
 }
