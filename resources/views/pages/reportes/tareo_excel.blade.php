@@ -47,6 +47,30 @@ for ($a; $a <= $b;) {
                 <tr>
                     <td colspan="30">{{$persona->apellidos}} {{$persona->nombres}} No Asistió el día {{$day}}
                         ({{$diaes}})
+			&nbsp; 
+			<?php
+				$faltasregistradas = App\Models\Falta::where('personal',$persona->id)->where('fecha',$day)->get()
+			?>
+			<span class="text-danger">
+			@foreach($faltasregistradas as $ff)
+			<?php 
+				switch($ff->falta){
+					case 1:
+						echo "Vacaciones.";
+					break;
+					case 2:	
+						echo "Permiso.";
+					break;
+					case 3:
+						echo "Falta injustificada.";
+					break;
+					case 4:
+						echo "Licencia médic.";
+					break;	
+				}
+			?>
+			@endforeach
+			</span>
                     </td>
                 </tr>
 
