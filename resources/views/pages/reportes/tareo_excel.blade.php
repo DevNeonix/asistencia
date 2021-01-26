@@ -16,6 +16,7 @@ for ($a; $a <= $b;) {
         <th>TAREADO</th>
         <th>APELLIDOS Y NOMBRES</th>
         <th>DNI</th>
+        <th>TIPO DE EMPLEADO</th>
         <th>CC</th>
         <th>CENTRO DE COSTO</th>
         <th>UBICACION</th>
@@ -47,18 +48,18 @@ for ($a; $a <= $b;) {
                 <tr>
                     <td colspan="30">{{$persona->apellidos}} {{$persona->nombres}} No Asistió el día {{$day}}
                         ({{$diaes}})
-			&nbsp; 
+			&nbsp;
 			<?php
 				$faltasregistradas = App\Models\Falta::where('personal',$persona->id)->where('fecha',$day)->get()
 			?>
 			<span class="text-danger">
 			@foreach($faltasregistradas as $ff)
-			<?php 
+			<?php
 				switch($ff->falta){
 					case 1:
 						echo "Vacaciones.";
 					break;
-					case 2:	
+					case 2:
 						echo "Permiso.";
 					break;
 					case 3:
@@ -66,7 +67,7 @@ for ($a; $a <= $b;) {
 					break;
 					case 4:
 						echo "Licencia médic.";
-					break;	
+					break;
 				}
 			?>
 			@endforeach
@@ -107,6 +108,7 @@ for ($a; $a <= $b;) {
                         <td>{{App\Models\User::find($marcacion->usuario_registra)->name}}</td>
                         <td>{{$persona->apellidos." ".$persona->nombres}}</td>
                         <td>{{$persona->doc_ide}}</td>
+                        <td>{{\App\Models\RolEmpleado::find($persona->tipo)->detalle}}</td>
                         <td>{{($cc!=null)?$cc->codigo:''}}</td>
                         <td>{{($cc!=null)?$cc->detalle:''}}</td>
                         <td>{{$ot->ubicacion}}</td>
