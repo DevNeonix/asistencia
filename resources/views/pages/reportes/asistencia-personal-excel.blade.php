@@ -1,4 +1,3 @@
-
 @php
 
     $a = \Illuminate\Support\Carbon::createFromDate(request('f1'));
@@ -13,13 +12,13 @@
 <table class="table my-2 table-responsive">
     <thead>
     <tr>
-        <th colspan=2>Personal</th>
+        <th colspan=3>Personal</th>
         <th colspan="{{count($dates)}}">Días</th>
         <th>Horas Trabajadas</th>
         <th colspan="3">Horas Extras</th>
     </tr>
     <tr>
-        <td colspan=2></td>
+        <td colspan=3></td>
         @foreach($dates as $d)
             <td>{{$d}}</td>
         @endforeach
@@ -41,9 +40,10 @@
 
         @endphp
         <tr>
-		                <td>{{$i->doc_ide}}</td>
+            <td>{{$i->doc_ide}}</td>
             <td><a href="{{route('admin.personal.edit',$i->id)}}">{{$i->apellidos}}, {{$i->nombres}}</a>
             </td>
+            <td>{{\App\Models\RolEmpleado::find($i->tipo)->detalle}}</td>
 
             @foreach($dates as $d)
                 @php($x = \App\Models\Marcacion::where('personal',$i->id)->where('fechaymd',$d)->get())
@@ -61,11 +61,11 @@
                     <strong>{{$extra}}</strong> horas extra
                     <br>
                     <strong>{{$x->count()}}</strong> Ot(s) asistida(s)
-		    <br>
-			<br>
-                        @foreach($x as $o)
-                                {{$o->ot->nro_orden}} {{$o->ot->producto_fabricar}}<br>
-                        @endforeach
+                    <br>
+                    <br>
+                    @foreach($x as $o)
+                        {{$o->ot->nro_orden}} {{$o->ot->producto_fabricar}}<br>
+                    @endforeach
 
 
                     <?php
