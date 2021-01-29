@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class PersonalUpdateRequest extends FormRequest
 {
@@ -27,7 +28,9 @@ class PersonalUpdateRequest extends FormRequest
             'nombres' => 'required',
             'apellidos' => 'required',
             'tipo' => 'required',
-            'doc_ide' => 'required|numeric|min:8',
+            'doc_ide' => [
+                'required', 'numeric', 'min:8', Rule::unique('personal')->ignore($this->id),
+            ]
         ];
     }
 }

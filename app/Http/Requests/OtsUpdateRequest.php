@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class OtsUpdateRequest extends FormRequest
 {
@@ -24,7 +25,9 @@ class OtsUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'nro_orden' => "required",
+            'nro_orden' => [
+                'required',  Rule::unique('orden_trabajo')->ignore($this->id),
+            ],
 //            'producto_fabricar' => "required",
             'cliente' => "required",
         ];

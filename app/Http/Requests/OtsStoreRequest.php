@@ -24,7 +24,7 @@ class OtsStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'nro_orden' => "required",
+            'nro_orden' => "required|unique:orden_trabajo",
 //            'producto_fabricar' => "required",
             'cliente' => "required",
         ];
