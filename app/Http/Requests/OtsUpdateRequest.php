@@ -30,6 +30,7 @@ class OtsUpdateRequest extends FormRequest
             ],
 //            'producto_fabricar' => "required",
             'cliente' => "required",
+            'centro_costo_id' => "required",
         ];
     }
 }

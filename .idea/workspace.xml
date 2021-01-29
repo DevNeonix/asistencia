@@ -26,7 +26,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Requests/OtsStoreRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/OtsStoreRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Requests/OtsUpdateRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/OtsUpdateRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/PersonalUpdateRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/PersonalUpdateRequest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,7 +226,7 @@
       <workItem from="1606998154957" duration="121000" />
       <workItem from="1609176318164" duration="152000" />
       <workItem from="1611770473000" duration="18000" />
-      <workItem from="1611940236844" duration="955000" />
+      <workItem from="1611940236844" duration="1374000" />
     </task>
     <servers />
   </component>
@@ -260,10 +259,10 @@
       <screen x="1600" y="0" width="1600" height="870" />
     </state>
     <state x="2211" y="205" key="NewPhpClassDialog/0.0.1600.870/1600.0.1600.870@1600.0.1600.870" timestamp="1606945252380" />
-    <state x="519" y="188" width="672" height="562" key="search.everywhere.popup" timestamp="1611941176900">
+    <state x="519" y="188" width="672" height="562" key="search.everywhere.popup" timestamp="1611941619243">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state x="519" y="188" width="672" height="562" key="search.everywhere.popup/0.0.1600.870/1600.0.1600.870@0.0.1600.870" timestamp="1611941176900" />
+    <state x="519" y="188" width="672" height="562" key="search.everywhere.popup/0.0.1600.870/1600.0.1600.870@0.0.1600.870" timestamp="1611941619243" />
     <state x="2119" y="188" width="672" height="562" key="search.everywhere.popup/0.0.1600.870/1600.0.1600.870@1600.0.1600.870" timestamp="1609176385257" />
     <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1606586422098" />
     <state x="623" y="240" width="672" height="648" key="search.everywhere.popup/0.23.1920.1002@0.23.1920.1002" timestamp="1604107391662" />

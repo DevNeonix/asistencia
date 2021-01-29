@@ -26,6 +26,7 @@ class OtsStoreRequest extends FormRequest
         return [
             'nro_orden' => "required|unique:orden_trabajo",
 //            'producto_fabricar' => "required",
+            'centro_costo_id' => "required",
             'cliente' => "required",
         ];
     }
